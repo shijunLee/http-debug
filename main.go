@@ -54,7 +54,7 @@ func main() {
 		responseMap := map[string]interface{}{}
 		responseMap["requestId"] = uuid.NewString()
 		responseMap["result"] = resultMap
-		responseData, _ := json.Marshal(responseMap)
+		responseData, _ := json.MarshalIndent(responseMap, " ", "\t")
 		w.Header().Set("content-type", "application/json")
 		w.Write(responseData)
 		w.WriteHeader(200)
